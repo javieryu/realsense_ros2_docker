@@ -19,16 +19,13 @@ echo "No running container was found! Starting a new one!"
 
 # If no container exists then run a new one!
 docker run \
-	--runtime nvidia \
 	-it \
 	--privileged \
 	--net=host \
 	--ipc=host \
 	--pid=host \
-	-e NVIDIA_DRIVER_CAPABILITIES=all \
 	-e DISPLAY \
 	-v /dev:/dev \
 	-v /tmp/.X11-unix/:/tmp/.X11-unix \
-	-v ${HOME}/workspaces/recordings:/root/ros2_ws/recordings \
 	--name $CONTAINER_NAME \
 	$IMAGE_NAME
