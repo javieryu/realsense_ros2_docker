@@ -11,7 +11,7 @@ fi
 # Re-use existing container.
 if [ "$(docker ps -a --quiet --filter status=running --filter name=$CONTAINER_NAME)" ]; then
     echo "Attaching to running container: $CONTAINER_NAME"
-    docker exec -i -t --workdir /root/ros2_ws $CONTAINER_NAME /sbin/ros_entrypoint.sh /bin/bash
+    docker exec -i -t --workdir /ros2_ws $CONTAINER_NAME /sbin/ros_entrypoint.sh /bin/bash
     exit 0
 fi
 
